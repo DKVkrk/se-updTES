@@ -1,0 +1,203 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Make body full height */
+    background-color: #181717; /* Optional background color */
+}
+
+.modal {
+    width: fit-content;
+    height: fit-content;
+    background: #e9e7e7;
+    box-shadow:
+        0px 187px 75px rgba(0, 0, 0, 0.01),
+        0px 105px 63px rgba(0, 0, 0, 0.05),
+        0px 47px 47px rgba(0, 0, 0, 0.09),
+        0px 12px 26px rgba(0, 0, 0, 0.1),
+        0px 0px 0px rgba(0, 0, 0, 0.1);
+    border-radius: 26px;
+    max-width: 450px;
+    padding: 20px;
+   
+}
+
+
+
+h1 {
+    text-align: center;
+    font-size: 24px; /* Increased font size for heading */
+    font-weight: bolder;
+    margin-bottom: 20px; /* Space below heading */
+    color: #131315; /* Heading color */
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.payment--options {
+    width: calc(100% - 40px);
+    display: grid;
+    grid-template-columns: 33% 34% 33%;
+    gap: 20px;
+    padding: 10px;
+}
+
+.payment--options button {
+    height: 55px;
+    background: #f2f2f2;
+    border-radius: 11px;
+    padding: 0;
+    border: 0;
+    outline: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.payment--options button svg {
+    height: 18px;
+}
+
+.payment--options button:last-child svg {
+    height: 22px;
+}
+
+.separator {
+    width: calc(100% - 20px);
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 10px;
+    color: #8b8e98;
+    margin: 0 10px;
+}
+
+.separator > p {
+    word-break: keep-all;
+    display: block;
+    padding-top: 10px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 11px;
+    margin: auto;
+}
+
+.separator .line {
+    display: inline-block;
+    width: 100%;
+    height: 1px;
+    border: 0;
+    background-color: #e8e8e8;
+    margin: auto;
+}
+.credit-card-info--form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.input_container {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.split {
+    display: grid;
+    grid-template-columns: 4fr 2fr;
+    gap: 15px;
+}
+
+.split input {
+    width: 100%;
+}
+
+.input_label {
+    font-size: 16px; /* Increased font size for labels */
+    color: #8b8e98;
+    font-weight: 600;
+}
+.input_field {
+    width: auto;
+    height: 40px;
+    padding: 0 0 0 16px;
+    border-radius: 9px;
+    outline: none;
+    background-color: #f2f2f2;
+    border: 1px solid #e5e5e500;
+    transition: all 0.3s cubic-bezier(0.15, 0.83, 0.66, 1);
+    font-size: 18px; /* Increased font size for input fields */
+}
+
+.input_field:focus {
+    border: 1px solid transparent;
+    box-shadow: 0px 0px 0px 2px #242424;
+    background-color: transparent;
+}
+.purchase--btn {
+    height: 55px;
+    background: #f2f2f2;
+    border-radius: 11px;
+    border: 0;
+    outline: none;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 700;
+    background: linear-gradient(180deg, #363636 0%, #1b1b1b 50%, #000000 100%);
+    box-shadow:
+        0px 0px 0px 0px #ffffff,
+        0px 0px 0px 0px #000000;
+    
+}
+
+.purchase--btn:hover {
+    box-shadow:
+        0px 0px 0px 2px #5c2c2c,
+        0px 0px 0px 4px #9407033a;
+}
+
+/* Reset input number styles */
+.input_field::-webkit-outer-spin-button,
+.input_field::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.input_field[type="number"] {
+    -moz-appearance: textfield;
+}
+.back-button-container {
+    display: flex;
+    justify-content: flex-start; /* Aligns the button to the left */
+    padding: 20px 0; /* Optional: Add some spacing above and below */
+}
+
+.back-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #5C6BC0;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    cursor: pointer;
+    text-align: center;
+}
+
+/* Hover effect */
+.back-btn:hover {
+    background-color: #3f51b5;
+}

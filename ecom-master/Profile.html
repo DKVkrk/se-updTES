@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <link rel="stylesheet" href="style22.css">
+</head>
+<body>
+    <div class="profile-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="profile-header">
+                <img src="https://via.placeholder.com/150" alt="Profile Picture" class="profile-img">
+                <h2>John Doe</h2>
+                <p class="email">john.doe@example.com</p>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="#">My Orders</a></li>
+                    <li><a href="#">Address Settings</a></li>
+                    <li><a href="#">Payment Methods</a></li>
+                    <li><a href="#">Change Password</a></li>
+                    <li><a href="#">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- Profile Content -->
+        <div class="profile-content">
+            <div class="profile-info">
+                <h3>Personal Information</h3>
+                <form action="#" method="POST">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" value="John Doe" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" value="john.doe@example.com" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" value="+1 234 567 890" disabled>
+                    </div>
+                    <button type="submit" class="btn">Save Changes</button>
+                </form>
+            </div>
+
+            <div class="address-info">
+                <h3>Shipping Address</h3>
+                <p>123 Main Street, Apartment 4B, New York, NY, 10001</p>
+                <button class="btn">Edit Address</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style18.css">
+    <title>Payment</title>
+    <!-- Replace with your actual client-id -->
+    <script src="https://www.paypal.com/sdk/js?client-id=AXxEh5FOQrOGnJY_vCbQ8Gf9NFoDUeXGwYz4kGR9K-GXAhbHuOdivbAMAGuVFxRyvQ6VkUj7Bp0HJz-4&currency=USD&components=buttons&debug=true"></script>
+</head>
+<body>
+    <div class="modal">
+        <h1>Payment</h1>
+        <div class="credit-card-info--form">
+            <div class="input_container">
+                <label class="input_label" for="total_amount">Total Amount</label>
+                <input
+                    type="text"
+                    id="total_amount"
+                    class="input_field"
+                    readonly
+                />
+            </div>
+        </div>
+
+        <div class="credit-card-info--pay">
+            <div id="paypal-button-container"></div>
+        </div>
+    </div>
+
+    <script>
+        // Get total amount from localStorage and update the display
+        const totalAmount = localStorage.getItem('cartTotal') || 0;
+        document.getElementById('total_amount').value = `₹${totalAmount}`;
+
+        // Validate totalAmount is not zero
+        if (totalAmount <= 0) {
+            alert("Invalid total amount. Please check your cart.");
+        }
+
+        // PayPal payment integration
+        paypal.Buttons({
+            createOrder: function(data, actions) {
+                console.log("Creating order...");
+
+                // Validate amount before proceeding
+                if (parseFloat(totalAmount) <= 0) {
+                    alert("Total amount must be greater than 0.");
+                    return;
+                }
+
+                // Return the order ID after creating the order
+                return actions.order.create({
+                    purchase_units: [{
+                        amount: {
+                            value: totalAmount
+                        }
+                    }]
+                }).then(function(orderData) {
+                    console.log("Order created successfully", orderData);
+                    return orderData.id; // Return the order ID
+                }).catch(function(error) {
+                    console.error("Error creating order:", error);
+                    alert("There was an issue with the payment creation. Please try again.");
+                    return null; // Return null to avoid proceeding without an order ID
+                });
+            },
+            onApprove: function(data, actions) {
+                console.log("Order approved", data);
+
+                // Capture the order after it's approved
+                return actions.order.capture().then(function(details) {
+                    alert('Transaction completed by ' + details.payer.name.given_name);
+                    // Handle successful payment, like redirecting to a success page or updating order status.
+                    console.log('Transaction details:', details);
+                }).catch(function(error) {
+                    console.error("Error capturing payment:", error);
+                    alert("An error occurred during payment. Please try again.");
+                });
+            },
+            onError: function(error) {
+                console.error("Error with PayPal button:", error);
+                alert("An error occurred. Please try again later.");
+            }
+        }).render('#paypal-button-container');
+    </script>
+
+    <a href="cart.html" class="back-btn">← Back</a>
+</body>
+</html>
